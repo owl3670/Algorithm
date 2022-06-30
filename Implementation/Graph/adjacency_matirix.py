@@ -1,22 +1,16 @@
+from msilib.schema import Error
+
+
 class Graph:
     def __init__(self, size) -> None:
         self.SIZE = size
+        if size == 0:
+            print('Size cannot be zero')
+            raise ValueError
         self.graph = [[0 for _ in range(size)] for _ in range(size)]
 
-    def add_edge(self, origin, dest) -> None:
-        self.graph[origin][dest] = 1
-    
-    def add_weighted_edge(self, origin, dest, weight) -> None:
+    def add_edge(self, origin, dest, weight=1) -> None:
+        if origin < 0 or origin > self.SIZE or dest < 0 or dest > self.SIZE:
+            print('Node number is invalid')
+            return
         self.graph[origin][dest] = weight
-
-g1 = Graph(5)
-g1.add_edge(0, 2)
-g1.add_edge(2, 0)
-g1.add_edge(0, 1)
-g1.add_edge(1, 0)
-g1.add_edge(1, 4)
-g1.add_edge(4, 1)
-g1.add_edge(2, 3)
-g1.add_edge(3, 2)
-
-print(g1.graph)
