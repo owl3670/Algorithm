@@ -1,6 +1,3 @@
-from msilib.schema import Error
-
-
 class Graph:
     def __init__(self, size) -> None:
         self.SIZE = size
