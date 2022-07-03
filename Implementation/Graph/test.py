@@ -1,7 +1,7 @@
 import unittest
 from adjacency_list import Graph as GraphAL
 from adjacency_matirix import Graph as GraphAM
-from dfs import dfsAL
+from dfs import dfsAL, dfsAM
 
 
 class Tests(unittest.TestCase):
@@ -21,7 +21,7 @@ class Tests(unittest.TestCase):
         self.g1.add_edge('B', 'D')
         self.g1.add_edge('D', 'B')
 
-        self.g2 = GraphAM(5)
+        self.g2 = GraphAM(6)
         self.g2.add_edge(0, 2)
         self.g2.add_edge(2, 0)
         self.g2.add_edge(0, 1)
@@ -30,6 +30,8 @@ class Tests(unittest.TestCase):
         self.g2.add_edge(4, 1)
         self.g2.add_edge(2, 3)
         self.g2.add_edge(3, 2)
+        self.g2.add_edge(4, 5)
+        self.g2.add_edge(5, 4)
 
     # Test Adjacency_list
 
@@ -43,16 +45,19 @@ class Tests(unittest.TestCase):
     # Test Adjacency_matrix
     def testAM(self):
         self.assertListEqual(self.g2.graph,
-                             [[0, 1, 1, 0, 0],
-                              [1, 0, 0, 0, 1],
-                              [1, 0, 0, 1, 0],
-                              [0, 0, 1, 0, 0],
-                              [0, 1, 0, 0, 0]])
+                             [[0, 1, 1, 0, 0, 0],
+                              [1, 0, 0, 0, 1, 0],
+                              [1, 0, 0, 1, 0, 0],
+                              [0, 0, 1, 0, 0, 0],
+                              [0, 1, 0, 0, 0, 1],
+                              [0, 0, 0, 0, 1, 0]])
 
     # Test DFS
     def testDFS(self):
         self.assertListEqual(dfsAL(self.g1.graph, 'A'),
                              ['A', 'C', 'B', 'D'])
+        self.assertListEqual(dfsAM(self.g2.graph, 0),
+                             [0, 2, 3, 1, 4, 5])
 
 
 if __name__ == '__main__':
