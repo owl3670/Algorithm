@@ -2,6 +2,7 @@ import unittest
 from adjacency_list import Graph as GraphAL
 from adjacency_matirix import Graph as GraphAM
 from dfs import dfsAL, dfsAM
+from bfs import bfsAL, bfsAM
 
 
 class Tests(unittest.TestCase):
@@ -59,6 +60,12 @@ class Tests(unittest.TestCase):
         self.assertListEqual(dfsAM(self.g2.graph, 0),
                              [0, 2, 3, 1, 4, 5])
 
+    # Test BFS
+    def testBFS(self):
+        self.assertListEqual(bfsAL(self.g1.graph, 'A'),
+                             ['A', 'B', 'C', 'D'])
+        self.assertListEqual(bfsAM(self.g2.graph, 0),
+                             [0, 1, 2, 4, 3, 5])
 
 if __name__ == '__main__':
     unittest.main()
