@@ -9,11 +9,12 @@ type Node struct {
 
 type AdjacencyList struct {
 	Graph map[string][]Node
-	size  int
+	Size  int
 }
 
 func (al *AdjacencyList) Init() {
 	al.Graph = make(map[string][]Node)
+	al.Size = 0
 }
 
 func (al *AdjacencyList) AddNode(node string) {
@@ -23,6 +24,7 @@ func (al *AdjacencyList) AddNode(node string) {
 		return
 	}
 	al.Graph[node] = make([]Node, 0)
+	al.Size += 1
 }
 
 func (al *AdjacencyList) AddEdge(from string, to string, weight int) {
