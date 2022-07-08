@@ -42,4 +42,6 @@ func main() {
 	for _, node := range g2.Graph {
 		fmt.Println(node)
 	}
+
+	graph.BfsAL(g1, "A")
 }
