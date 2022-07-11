@@ -43,5 +43,5 @@ func main() {
 		fmt.Println(node)
 	}
 
-	graph.BfsAL(g1, "A")
+	fmt.Println(g1.BfsAL("A"))
 }

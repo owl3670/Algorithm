@@ -4,7 +4,7 @@ import "fmt"
 
 type AdjacencyMatrix struct {
 	Graph [][]int
-	size  int
+	Size  int
 }
 
 func (am *AdjacencyMatrix) Init(size int) {
@@ -12,11 +12,11 @@ func (am *AdjacencyMatrix) Init(size int) {
 	for i := range am.Graph {
 		am.Graph[i] = make([]int, size)
 	}
-	am.size = size
+	am.Size = size
 }
 
 func (am *AdjacencyMatrix) AddEdge(from int, to int, weight int) {
-	if from < 0 || from >= am.size || to < 0 || to >= am.size {
+	if from < 0 || from >= am.Size || to < 0 || to >= am.Size {
 		fmt.Println("Node number is invalid")
 		return
 	}
