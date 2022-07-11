@@ -44,4 +44,5 @@ func main() {
 	}
 
 	fmt.Println(g1.BfsAL("A"))
+	fmt.Println(g2.BfsAM(0))
 }
