@@ -1,4 +1,4 @@
-package queue
+package datastruct
 
 type Queue []interface{}
 
@@ -7,7 +7,7 @@ func (q *Queue) Enqueue(data interface{}) {
 }
 
 func (q *Queue) Dequeue() interface{} {
-	if len(*q) == 0 {
+	if q.GetLength() == 0 {
 		return nil
 	}
 	data := (*q)[0]

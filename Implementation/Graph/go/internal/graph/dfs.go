@@ -6,12 +6,12 @@ import (
 	"algorithm.implementation/datastruct"
 )
 
-func (g AdjacencyList) BfsAL(start string) []string {
+func (g AdjacencyList) DfsAL(start string) []string {
 	visited := make([]string, 0)
-	q := datastruct.Queue{}
-	q.Enqueue(start)
-	for q.GetLength() != 0 {
-		node := fmt.Sprintf("%v", q.Dequeue())
+	s := datastruct.Stack{}
+	s.Push(start)
+	for s.GetLength() != 0 {
+		node := fmt.Sprintf("%v", s.Pop())
 		var exist bool
 		for _, val := range visited {
 			exist = val == node || exist
@@ -23,19 +23,19 @@ func (g AdjacencyList) BfsAL(start string) []string {
 
 		visited = append(visited, node)
 		for _, val := range g.Graph[node] {
-			q.Enqueue(val.name)
+			s.Push(val.name)
 		}
 	}
 
 	return visited
 }
 
-func (g AdjacencyMatrix) BfsAM(start int) []int {
+func (g AdjacencyMatrix) DfsAM(start int) []int {
 	visited := make([]int, 0)
-	q := datastruct.Queue{}
-	q.Enqueue(start)
-	for q.GetLength() != 0 {
-		node := q.Dequeue().(int)
+	s := datastruct.Stack{}
+	s.Push(start)
+	for s.GetLength() != 0 {
+		node := s.Pop().(int)
 		var exist bool
 		for _, val := range visited {
 			exist = val == node || exist
@@ -50,7 +50,7 @@ func (g AdjacencyMatrix) BfsAM(start int) []int {
 			if val == 0 {
 				continue
 			}
-			q.Enqueue(idx)
+			s.Push(idx)
 		}
 	}
 

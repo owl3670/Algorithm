@@ -1,3 +1,3 @@
-module algorithm.implementation.datastruct
+module algorithm.implementation/datastruct
 
 go 1.18

@@ -22,9 +22,7 @@ func main() {
 	g1.AddEdge("B", "D", 1)
 	g1.AddEdge("D", "B", 1)
 
-	for _, node := range g1.Graph {
-		fmt.Println(node)
-	}
+	fmt.Println(g1)
 
 	g2 := graph.AdjacencyMatrix{}
 	g2.Init(6)
@@ -39,10 +37,11 @@ func main() {
 	g2.AddEdge(4, 5, 1)
 	g2.AddEdge(5, 4, 1)
 
-	for _, node := range g2.Graph {
-		fmt.Println(node)
-	}
+	fmt.Println(g2)
 
 	fmt.Println(g1.BfsAL("A"))
 	fmt.Println(g2.BfsAM(0))
+
+	fmt.Println(g1.DfsAL("A"))
+	fmt.Println(g2.DfsAM(0))
 }
