@@ -1,6 +1,6 @@
 def solution():
-    r = int(input())
     c = int(input())
+    r = int(input())
     matrix = [[0 for _ in range(c)] for _ in range(r)]
     li = [int(x) for x in input().split(',')]
     for i in range(r):
