@@ -41,4 +41,5 @@ def solution():
     y = pos[1] - 1
     print(matrix[y][x])
 
-solution()
+def main():
+    solution()

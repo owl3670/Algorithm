@@ -39,4 +39,5 @@ def solution():
 
     print(','.join(map(str, tmp)))
 
-solution()
+def main():
+    solution()

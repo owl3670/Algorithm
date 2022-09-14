@@ -55,5 +55,5 @@ def solution():
 
     print(q.dequeue())
 
-
-solution()
+def main():
+    solution()
