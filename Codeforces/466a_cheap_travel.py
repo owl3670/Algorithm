@@ -1,5 +1,3 @@
-# Codeforces 466a Cheap Travel (Div. 2)
-
 n, m, a, b = map(int, input().split())
 if m * a <= b:
     print(n * a)
