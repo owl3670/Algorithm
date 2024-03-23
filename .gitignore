@@ -150,3 +150,6 @@ dmypy.json
 
 # Docker postgreSQL data
 *.postgre-data
+
+# Mac OS
+.DS_Store
