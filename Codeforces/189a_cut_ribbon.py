@@ -1,14 +1,25 @@
 from sys import stdin
-
+ 
 def main():
     n, a, b, c = map(int, stdin.readline().split())
-    max_pieces = 0
-    for i in range(0, (n // a) + 1):
-        for j in range(0, (n // b) + 1):
-            for k in range(0, (n // c) + 1):
-                if i*a + j*b + k*c == n:
-                    max_pieces = max(max_pieces, i + j + k)
-    print(max_pieces)
-
+    li = [a, b, c]
+    dp = [0] * (n + 1)
+ 
+    for i in range(1, n + 1):
+        if dp[i] != 0:
+            for j in li:
+                if i + j <= n:
+                    dp[i + j] = max(dp[i + j], dp[i] + 1)
+        else:
+            for j in li:
+                if i % j == 0:
+                    dp[i] = max(dp[i], i // j)
+            if dp[i] != 0:
+                for j in li:
+                    if i + j <= n:
+                        dp[i + j] = max(dp[i + j], dp[i] + 1)
+    print(dp[n])
+    
+ 
 if __name__ == '__main__':
     main()
